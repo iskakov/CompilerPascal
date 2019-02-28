@@ -11,29 +11,29 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="2"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Padding="10,0" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Width="auto" Style="{DynamicResource MenuButtoStyle}" Click="Button_Click" >
-            <Button.Content>
-                <TextBlock Text="Выполнить" />
-            </Button.Content>
-        </Button>
-        <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Fill="Black" Height="auto" Width="auto"/>
-        <Rectangle Grid.Row="3" Grid.ColumnSpan="2" Fill="Black" Height="auto" Width="auto"/>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2">
-            <Border BorderBrush="#5e5e5e" BorderThickness="4" Background="#2c2c2c">
-                <TextBlock x:Name="rezult" Margin="10" FontSize="14" FontFamily="/Fonts/roboto-regular.ttf #Roboto"></TextBlock>
-            </Border>
-        </Grid>
-        <Grid Grid.Row="4" Grid.ColumnSpan="2">
-            <Border BorderBrush="#5e5e5e" BorderThickness="4" Background="#2c2c2c">
-                <TextBlock x:Name="consol" Margin="10" FontSize="14" FontFamily="/Fonts/roboto-regular.ttf #Roboto"></TextBlock>
-            </Border>
-        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Padding="10,0" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Width="auto" Style="{DynamicResource MenuButtoStyle}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Button_Click_1" >
+                <Button.Content>
+                    <TextBlock Text="Открыть проект" />
+                </Button.Content>
+            </Button>
+            <Button Padding="10,0" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Width="auto" Style="{DynamicResource MenuButtoStyle}" Click="Button_Click" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                <Button.Content>
+                    <TextBlock Text="Выполнить" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+         <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Fill="Black" Height="auto" Width="auto"/>
+
+        <TabControl x:Name="tabControl" Grid.Row="2" Grid.ColumnSpan="2" Background="#5e5e5e">
+         
+        </TabControl> 
+        
     </Grid>
 </Window>

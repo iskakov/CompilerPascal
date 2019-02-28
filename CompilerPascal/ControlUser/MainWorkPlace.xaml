@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="CompilerPascal.ControlUser.MainWorkPlace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CompilerPascal.ControlUser"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#5e5e5e">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Fill="Black" Height="auto" Width="auto"/>
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="2" Fill="Black" Height="auto" Width="auto"/>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Border BorderBrush="#5e5e5e" BorderThickness="4" Background="#2c2c2c">
+                <ScrollViewer Margin="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="beginName" Grid.Column="0"  Margin="10"  FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.ColumnSpan="2"/>
+                        <TextBlock x:Name="rezultName"  Grid.Column="3"  Margin="10" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.ColumnSpan="2"/>
+
+                        <TextBlock x:Name="beginNumber"  Margin="10" Grid.Column="0" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.Row="1"></TextBlock>
+
+                        <RichTextBox Grid.Column="1" x:Name="begin" Margin="10" Background="Transparent" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.Row="1" Style="{DynamicResource RichTextBoxStyle1}"/>
+
+                        <TextBlock x:Name="rezultNumber"  Margin="10" Grid.Column="3" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.Row="1"></TextBlock>
+                        <TextBlock x:Name="rezult"  Margin="10" Grid.Column="4" FontSize="14" Foreground="White" FontFamily="/Fonts/roboto-regular.ttf #Roboto" Grid.Row="1"></TextBlock>
+
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+            <Border  BorderBrush="#5e5e5e" BorderThickness="4" Background="#2c2c2c">
+                <RichTextBox x:Name="RTB" Background="Transparent" Foreground="White"/>
+            </Border>
+        </Grid>
+    </Grid>
+
+</UserControl>

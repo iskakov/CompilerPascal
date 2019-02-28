@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ControlUser\LoadProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlUser\MainWorkPlace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,8 +71,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\Constants.cs" />
     <Compile Include="Class\ErrorPosition.cs" />
+    <Compile Include="Class\Modul\InpOut.cs" />
+    <Compile Include="Class\Modul\LexAnalyz.cs" />
+    <Compile Include="Class\Modul\StreamWritter.cs" />
     <Compile Include="Class\TextPosition.cs" />
+    <Compile Include="ControlUser\LoadProject.xaml.cs">
+      <DependentUpon>LoadProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlUser\MainWorkPlace.xaml.cs">
+      <DependentUpon>MainWorkPlace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -100,5 +118,9 @@
   <ItemGroup>
     <Resource Include="TextFile\Error.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TextFile\Program.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,15 @@
+﻿program pd;
+INTEGER a, i;
+1BOOLEAN b;
+1i := 0;
+a := 10;
+(* for ( i := 0, i < a, i = i + 1)
+?      & %%%
+a := '';
+a := 'a';
+*)
+1E3 -24E-254 -2.5E+2 3E=53;
+if ( i mod 32769 = 0 )
+then b := true;
+else b :=  false;
+{ PRINTLN ( b );

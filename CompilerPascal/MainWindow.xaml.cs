@@ -1,6 +1,10 @@
 ﻿using CompilerPascal.Class;
+using CompilerPascal.Class.Modul;
+using CompilerPascal.ControlUser;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,62 +25,34 @@ namespace CompilerPascal
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<int, string> errorMessage;
-        private List<ErrorPosition> errorPositions;
-
         public MainWindow()
         {
             InitializeComponent();
-            errorPositions = new List<ErrorPosition>();
-            initializeErrMsg();
-        }
-
-        private void initializeErrMsg()
-        {
-            errorMessage = new Dictionary<int, string>();
-            var st = new string[]
-            {
-                "ошибка в простом типе","должно идти имя","должно быть служебное слово PROGRAM","должен идти символ  ')'","должен идти символ  ':'","запрещенный символ","ошибка в списке параметров","должно идти  OF","должен идти символ  '('","ошибка в типе",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-                "","","","","","","","","","","","",
-            };
+            createTabItem("Project 1", "Program.txt", "Rezult.txt");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ((MainWorkPlace)((TabItem)tabControl.SelectedItem).Content).printNewFile();
         }
 
-        private void error(int code, TextPosition textPosition)
+        private void createTabItem(string nameProject,string nameFile, string nameFileRezult)
         {
+            var tabItem = new TabItem();
+            tabItem.Content = new MainWorkPlace(nameFile,nameFileRezult);
+            tabItem.Header = nameProject;
+            tabControl.Items.Add(tabItem);
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "\\\\Mac\\Home\\Desktop\\Универ\\Методы трансляции\\CompilerPascal\\CompilerPascal\\TextFile";
+            openFileDialog.Multiselect = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                createTabItem(openFileDialog.FileName.Split('\\')[openFileDialog.FileName.Split('\\').Count()-2], openFileDialog.FileNames[1].Split('\\').Last(), openFileDialog.FileNames[0].Split('\\').Last());
+            }
         }
     }
 }
